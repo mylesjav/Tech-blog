@@ -38,3 +38,5 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 https://github.com/mylesjav/Tech-blog
 
+https://mylesjav.github.io/Tech-blog/
+
