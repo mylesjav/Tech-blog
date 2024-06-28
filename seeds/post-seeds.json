@@ -1,0 +1,42 @@
+[
+    {
+      "title": "Mastering Node.js Server",
+      "content": "Avoid DOM manipulation"
+    },
+    {
+      "title": "Leveraging async/await in JavaScript",
+      "content": "Streamline your asynchronous operations"
+    },
+    {
+      "title": "Crafting RESTful APIs with Express",
+      "content": "Build scalable and maintainable APIs"
+    },
+    {
+      "title": "Diving into React Hooks",
+      "content": "Handle state and side effects in functional components"
+    },
+    {
+      "title": "Fortifying your Node.js applications",
+      "content": "Top practices for securing your application"
+    },
+    {
+      "title": "Embarking on Docker",
+      "content": "Package your applications for effortless deployment"
+    },
+    {
+      "title": "Boosting SQL queries for performance",
+      "content": "Enhance the speed of your database operations"
+    },
+    {
+      "title": "Exploring GraphQL",
+      "content": "The new wave in API development"
+    },
+    {
+      "title": "Testing JavaScript applications using Jest",
+      "content": "Develop reliable and maintainable tests"
+    },
+    {
+      "title": "Launching Node.js applications on AWS",
+      "content": "Serve your applications from the cloud"
+    }
+  ]

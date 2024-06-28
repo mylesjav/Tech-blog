@@ -1,10 +1,11 @@
-const withAuth = (req, res, next) => {
-  // If the user is not logged in, redirect the request to the login route
+
+const auth = (req, res, next) => {
+  // Redirect the anonymous users to a Log In page
   if (!req.session.logged_in) {
-    res.redirect('/login');
+    res.redirect("/login");
   } else {
     next();
   }
 };
 
-module.exports = withAuth;
+module.exports = auth;
