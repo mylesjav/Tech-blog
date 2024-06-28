@@ -1,24 +1,33 @@
-<!-- Loop over each object in the projects array -->
-{{#each projects as |project| }}
-<div class="row mb-4 project">
-  <div class="col-md-5">
-    <h2>
-      <!-- Call helper function with triple brackets to render the emoji span as HTML -->
-      {{{get_emoji}}}
-      <a href="/project/{{project.id}}">{{project.name}}</a>
-    </h2>
-    <p>
-      <span for="img" aria-label="money">💲</span>
-      <!-- Pass needed_funding value to the helper function -->
-      <span class="dollar-amount">{{format_amount project.needed_funding}}</span>
-      needed!
-    </p>
-    <p>Created by {{project.user.name}} on {{format_date project.date_created}}</p>
-  </div>
-  <div class="col-md-7">
-    <p>
-      {{project.description}}
-    </p>
-  </div>
+
+<div class="pt-3 pb-1 px-3 bg-light-dark rounded-top-sm">
+  {{#each posts as |post|}}
+    <div
+      class="post card card-rounded card-clickable bg-white"
+      onclick="window.location.href='/post/{{post.id}}'"
+    >
+      <div class="card-header card-clickable pt-2 pb-1 bg-dark rounded-top-sm">
+        <h4>{{post.title}}</h4>
+      </div>
+      <div class="card-body pt-3 pb-0">
+        <p class="text-center" style="font-style: italic;">Join the discussion!</p>
+      </div>
+      <hr />
+      <div class="card-body pb-3">
+        <p class="align-right">Posted by
+          {{post.user.username}}
+          on
+          {{formatDate post.date_created}}</p>
+      </div>
+    </div>
+  {{/each}}
 </div>
-{{/each}}
+<div class="py-2 px-4 h-25px bg-light-dark rounded-bottom-md"></div>
+<div class="mt-5 w-100 display-flex justify-center">
+  <button
+    class="btn btn-light-dark text-info-dark btn-md rounded-md btn-rounded"
+    id="scroll-to-top"
+    onClick="scrollToTop()"
+    style="position: fixed; right: 20px; bottom: 100px; width: 100px; height: 100px;"
+  ><h4 style="rotate: 270deg;">&#10149;</h4>Return to top</button>
+</div>
+<script src="/js/homepage.js"></script>

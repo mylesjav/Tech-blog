@@ -1,44 +1,62 @@
-<!DOCTYPE html>
+
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fund My Project!</title>
-  <link rel="stylesheet" href="/css/jass.css">
-  <link rel="stylesheet" href="/css/style.css">
-</head>
-
-<body>
-  <div class="flex-column justify-space-around">
-    <header class="display-flex justify-space-between align-center p-2">
-      <h1>
-        <span role="img" aria-label="money">💸</span>
-        <a href="/">Fund My Project!</a>
-      </h1>
-      <nav>
-        <!-- Conditionally render login or logout links -->
-        {{#if logged_in}}
-        <a href="/profile">profile</a> |
-        <button class="no-button" id="logout">logout</button>
-        {{else}}
-        <a href="/login">login</a>
-        {{/if}}
-      </nav>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tech Blog</title>
+    <link rel="icon" href="/assets/techblogicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="/css/jass.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <script src="/js/helpers.js"></script>
+  </head>
+  <body class="bg-dark">
+    <header>
+      <div class="col-12 p-0 h-150px bg-dark">
+        <div
+          class="container col-8 p-0 h-150px flex-row align-end justify-space-between"
+        >
+          <div id="header-logo" class="pt-3 px-3 h-75px display-flex bg-light">
+            <div
+              id="header-logo-inner"
+              class="px-4 display-flex align-center bg-light-dark"
+            >
+              <h1 class="text-dark centered-title">Tech Blog</h1>
+            </div>
+          </div>
+          <div
+            id="header-nav"
+            class="pt-2 px-3 h-50px display-flex align-end bg-light"
+          >
+            <nav>
+              <a class="btn btn-light-dark btn-md" href="/">Home</a>
+              <a
+                class="btn btn-light-dark btn-md"
+                href="/dashboard"
+              >Dashboard</a>
+              {{#if logged_in}}
+                <a class="btn btn-light-dark btn-md" href="/logout">Log Out</a>
+              {{else}}
+                <a class="btn btn-light-dark btn-md" href="/login">Log In</a>
+              {{/if}}
+            </nav>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 p-0 bg-dark">
+        <div class="col-8 p-0 mx-auto h-25px bg-light"></div>
+      </div>
     </header>
-    <main class="container container-fluid mt-5">
-      <!-- Render the sub layout -->
-      {{{ body }}}
+
+    <main class="col-12 p-0 bg-primary">
+      <div class="container col-8 p-0 mx-auto bg-light">
+        <div class="px-3 pb-1">
+          {{{body}}}
+        </div>
+      </div>
     </main>
-    <footer>
-      
+
+    <footer class="col-12 bg-dark p-0 h-100px">
+      <div class="col-8 p-0 mx-auto h-25px bg-light rounded-bottom-md"></div>
     </footer>
-  </div>
-
-  <!-- Render script for logged in users only -->
-  {{#if logged_in}}
-  <script src="/js/logout.js"></script>
-  {{/if}}
-</body>
-
+  </body>
 </html>
