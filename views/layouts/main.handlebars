@@ -1,62 +1,47 @@
 
+{{!-- Header has home page link, dashboard link, and login/logout link. if logged in display logout if etc --}}
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tech Blog</title>
-    <link rel="icon" href="/assets/techblogicon.png" type="image/x-icon" />
-    <link rel="stylesheet" href="/css/jass.css" />
-    <link rel="stylesheet" href="/css/style.css" />
-    <script src="/js/helpers.js"></script>
-  </head>
-  <body class="bg-dark">
-    <header>
-      <div class="col-12 p-0 h-150px bg-dark">
-        <div
-          class="container col-8 p-0 h-150px flex-row align-end justify-space-between"
-        >
-          <div id="header-logo" class="pt-3 px-3 h-75px display-flex bg-light">
-            <div
-              id="header-logo-inner"
-              class="px-4 display-flex align-center bg-light-dark"
-            >
-              <h1 class="text-dark centered-title">Tech Blog</h1>
-            </div>
-          </div>
-          <div
-            id="header-nav"
-            class="pt-2 px-3 h-50px display-flex align-end bg-light"
-          >
-            <nav>
-              <a class="btn btn-light-dark btn-md" href="/">Home</a>
-              <a
-                class="btn btn-light-dark btn-md"
-                href="/dashboard"
-              >Dashboard</a>
-              {{#if logged_in}}
-                <a class="btn btn-light-dark btn-md" href="/logout">Log Out</a>
-              {{else}}
-                <a class="btn btn-light-dark btn-md" href="/login">Log In</a>
-              {{/if}}
-            </nav>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 p-0 bg-dark">
-        <div class="col-8 p-0 mx-auto h-25px bg-light"></div>
-      </div>
-    </header>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Tech Blog</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" 
+  rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" 
+  crossorigin="anonymous">
+  <!-- Google Fonts Links Starts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@600&family=Zilla+Slab:wght@300&display=swap" rel="stylesheet">
+  <!-- Google Fonts Links Ends -->
+      <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css"
+      />
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header>
+    <h1><a href="/">The Tech Blog</a></h1>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/dashboard">Dashboard</a></li>
+      {{!-- Make if statement when logged in show log out visa versa --}}
+      {{#if logged_in}}
+      <li><a href="/" id="logout">Logout</a></li>
+      {{else}}
+      <li><a href="/login">Login</a></li>
+      <li><a href="/signup">Sign Up</a></li> 
+      {{/if}}
+    </ul>
+  </header>
+  <main>
+    {{{ body }}}
+  </main>
 
-    <main class="col-12 p-0 bg-primary">
-      <div class="container col-8 p-0 mx-auto bg-light">
-        <div class="px-3 pb-1">
-          {{{body}}}
-        </div>
-      </div>
-    </main>
-
-    <footer class="col-12 bg-dark p-0 h-100px">
-      <div class="col-8 p-0 mx-auto h-25px bg-light rounded-bottom-md"></div>
-    </footer>
-  </body>
+  {{#if logged_in}}
+    <script src="/js/logout.js"></script>
+  {{/if}}
+</body>
 </html>

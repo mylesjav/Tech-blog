@@ -1,45 +1,33 @@
-const sequelize = require("../config/connection");
-const { User, Post, Comment } = require("../models");
+const sequelize = require('../config/connection');
+const { Blog, User, Comments } = require('../models');
 
-const userSeeds = require("./user-seeds.json");
-const postSeeds = require("./post-seeds.json");
-const commentSeeds = require("./comment-seeds.json");
+const blogData = require('./blogData.json');
+const userData = require('./userData.json');
+const commentsData = require('./commentsData.json');
 
-const cleanDB = async () => {
-  await sequelize.query("SET FOREIGN_KEY_CHECKS = 0");
-  await sequelize.sync({ force: true });
-  await sequelize.query("SET FOREIGN_KEY_CHECKS = 1");
-};
-
-cleanDB();
-
-const seedDB = async () => {
+const seedDatabase = async () => {
   await sequelize.sync({ force: true });
 
-  const users = await User.bulkCreate(userSeeds, {
+  const users = await User.bulkCreate(userData, {
     individualHooks: true,
     returning: true,
   });
-  console.log("Users seeded");
 
-  for (const post of postSeeds) {
-    await Post.create({
-      ...post,
-      user_id: users[Math.floor(Math.random() * users.length)].id,
+  for (const blog of blogData) {
+    await Blog.create({
+      ...blog,
     });
   }
-  console.log("Posts seeded");
 
-  for (const comment of commentSeeds) {
-    await Comment.create({
-      ...comment,
-      user_id: users[Math.floor(Math.random() * users.length)].id,
-      post_id: Math.floor(Math.random() * postSeeds.length) + 1,
+  for (const comments of commentsData) {
+    await Comments.create({
+      ...comments,
     });
   }
-  console.log("Comments seeded");
 
   process.exit(0);
 };
 
-seedDB();
+seedDatabase();
+
+module.exports = seedDatabase;

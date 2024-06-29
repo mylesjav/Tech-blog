@@ -1,0 +1,25 @@
+{{!-- username and password form that posts a new user --}}
+{{!-- When created redirect to the dashboard --}}
+<div id="signupHidden">
+<h2>Sign Up</h2>
+
+<form class="form signup-form" id="loginSignUpForms">
+  <div class="mb-3">
+    <label for="name-signup" class="form-label">Username:</label>
+    <input class="form-control" type="text" id="username-signup" aria-describedby="nameSignUpHelp">
+    <div id="nameSignUpHelp" class="form-text">Please enter your username</div>
+  </div>
+  <div class="mb-3">
+    <label for="password-signup" class="form-label">Password:</label>
+    <input class="form-control" type="password" id="password-signup" aria-describedby="passwordSignUpHelp">
+    <div id="passwordSignUpHelp" class="form-text">Please enter a password between above 8 characters</div>
+  </div>
+  <div id="signUpAlert"class="alert alert-warning" role="alert">
+  Make sure to provide all of the details above and your password is above 8 characters
+  </div>
+    <button class="btn btn-primary" id="signupBtn" type="submit">Sign Up</button>
+    <span id="login-prompt">Already have an account? <a href="/login" id="login-promptBtn">Login Here</a></span>
+</form>
+</div>
+
+<script src="/js/signUp.js"></script>

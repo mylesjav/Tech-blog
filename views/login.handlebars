@@ -1,60 +1,21 @@
-<div class="pt-3 pb-1 px-3 bg-light-dark rounded-top-sm">
-  <div class="card card-rounded bg-white mb-0">
-    <h4 class="card-header bg-dark rounded-top-sm">Login</h4>
-    <div class="card-body pr-2">
-      <form action="/login" method="post" class="login-form">
-        <div class="form-group">
-          <label for="email-login">Email: </label>
-          <input type="email" name="email-login" id="email-login" />
-        </div>
-        <div class="form-group">
-          <label for="password-login">Password: </label>
-          <input type="password" name="password-login" id="password-login" />
-        </div>
-        <div class="form-group">
-          <button type="submit" class="btn btn-md btn-light-dark">Login</button>
-        </div>
-        <div
-          class="form-group bg-danger rounded-sm p-1 pt-2 pl-2 text-white hidden"
-          id="login-error"
-        >
-          <h5 class="message"></h5>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
+{{!-- username and password form that checks against data base to login --}}
+<h2>Login</h2>
 
-<div class="pt-3 pb-1 px-3 bg-light-dark rounded-bottom-md">
-  <div class="card card-rounded bg-white">
-    <h4 class="card-header bg-dark rounded-top-sm">Signup</h4>
-    <div class="card-body pr-2">
-      <form action="/signup" method="post" class="signup-form">
-        <div class="form-group">
-          <label for="username-signup">Username: </label>
-          <input type="text" name="username-signup" id="username-signup" />
-        </div>
-        <div class="form-group">
-          <label for="email-signup">Email: </label>
-          <input type="email" name="email-signup" id="email-signup" />
-        </div>
-        <div class="form-group">
-          <label for="password-signup">Password: </label>
-          <input type="password" name="password-signup" id="password-signup" />
-        </div>
-        <div class="form-group">
-          <button type="submit" class="btn btn-md btn-light-dark">Sign up to
-            Tech Blog</button>
-        </div>
-        <div
-          class="form-group bg-danger rounded-sm p-1 pt-2 pl-2 text-white hidden"
-          id="signup-error"
-        >
-          <h5 class="message"></h5>
-        </div>
-      </form>
-    </div>
+<form class="form login-form" id="loginSignUpForms">
+  <div class="mb-3">
+    <label for="username-login" class="form-label">Username:</label>
+    <input class="form-control" for="username-login" type="username" id="username-login" aria-describedby="emailHelp">
+    <div id="emailHelp" class="form-text">Please enter the username associated with your account</div>
   </div>
-</div>
+  <div class="mb-3">
+    <label for="password-login" class="form-label">Password:</label>
+    <input class="form-control" type="password" id="password-login">
+  </div>
+  <div id="loginAlert" class="alert alert-warning" role="alert">
+  We couldn't find an account with the details you provided.<br> <a id="signup-promptBtn" class="alert-link" href="/signUp">Sign up for an account here</a> or check your details and try again
+  </div>
+  <button class="btn btn-primary" id="loginBtn" type="submit">Login</button>
+  <span id="signup-prompt">Don't have an account? <a id="signup-promptBtn2" href="/signUp">Sign Up Here</a></span>
+</form>
 
 <script src="/js/login.js"></script>

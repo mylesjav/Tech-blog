@@ -1,53 +1,45 @@
+// Handles login
 const loginFormHandler = async (event) => {
   event.preventDefault();
+  hideLoginAlert();
 
   // Collect values from the login form
-  const email = document.querySelector('#email-login').value.trim();
+  const username = document.querySelector('#username-login').value.trim();
   const password = document.querySelector('#password-login').value.trim();
 
-  if (email && password) {
+  if (username && password) {
     // Send a POST request to the API endpoint
     const response = await fetch('/api/users/login', {
       method: 'POST',
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify({ username, password }),
       headers: { 'Content-Type': 'application/json' },
     });
 
     if (response.ok) {
-      // If successful, redirect the browser to the profile page
-      document.location.replace('/profile');
+      // If successful, redirect the browser to the home page
+      // document.location = ('/');
+      document.location.replace('/');
+      // changed from this to render logout button on login not on next page load
     } else {
-      alert(response.statusText);
+      loginAlert();
     }
   }
 };
 
-const signupFormHandler = async (event) => {
-  event.preventDefault();
+const loginAlert = () => {
+  const loginAlert = document.querySelector('#loginAlert');
+  loginAlert.style.display = 'block';
+}
 
-  const name = document.querySelector('#name-signup').value.trim();
-  const email = document.querySelector('#email-signup').value.trim();
-  const password = document.querySelector('#password-signup').value.trim();
-
-  if (name && email && password) {
-    const response = await fetch('/api/users', {
-      method: 'POST',
-      body: JSON.stringify({ name, email, password }),
-      headers: { 'Content-Type': 'application/json' },
-    });
-
-    if (response.ok) {
-      document.location.replace('/profile');
-    } else {
-      alert(response.statusText);
-    }
-  }
-};
+const hideLoginAlert = () => {
+  const loginAlert = document.querySelector('#loginAlert');
+  loginAlert.style.display = 'none';
+}
 
 document
   .querySelector('.login-form')
   .addEventListener('submit', loginFormHandler);
 
 document
-  .querySelector('.signup-form')
-  .addEventListener('submit', signupFormHandler);
+  .querySelector('#loginBtn')
+  .addEventListener('click', loginFormHandler);

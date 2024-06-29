@@ -1,0 +1,46 @@
+{{!-- Renders all existing blog posts --}}
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        color: black; 
+        text-decoration: none;
+    }
+    .blogCard {
+        margin: 10px;
+        padding: 5px;
+        border: 3px black solid;
+        border-radius: 10px;
+    }
+    
+    h3 {
+        margin-bottom: 0;
+    }
+    .blogCard {
+        text-align: center;
+    }
+    .blogHeader {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 5px;
+        border-radius: 10px;
+        background: lightblue;
+    }
+    p {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+</style>
+
+<h2>Home Page</h2>
+{{#each blogs as |blog|}}
+<div class="blogCard">
+    <a href="/blog/{{blog.id}}">
+        <div class="blogHeader">
+            <h3>{{blog.title}}</h3>
+        </div>
+        <p class="footerText">Created by {{user.username}} on {{ format_date blog.date_created}}</p> 
+    </a>
+</div>
+{{/each}}
