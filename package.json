@@ -1,6 +1,6 @@
 
 {
-  "name": "gratitude",
+  "name": "tech_blog_db",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -11,14 +11,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mylesjav/.git"
+    "url": "git+https://github.com/mylesjav/Tech-blog.git"
   },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/mylesjav/Gratitude/issues"
-  },
-  "homepage": "https://github.com/G-murphy03/Gratitude#readme",
+  
   "dependencies": {
     "bcrypt": "^5.0.1",
     "connect-session-sequelize": "^7.1.4",
